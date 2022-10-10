@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="GBK"?>
+<returnsms>
+    <returnstatus>Success（成功）</returnstatus>
+    <message>ok</message>
+    <remainpoint>1490</remainpoint>
+    <taskID>885</taskID>
+    <successCounts>1</successCounts>
+    <SETTLE_DAY>2021-01-01</SETTLE_DAY>
+    <count>
+        <name>张三</name>
+    </count>
+</returnsms>

@@ -1,0 +1,2 @@
+ JSch库可以实现Java连接Linux服务器并操作命令、文件等，支持常用的各种授权模式。网址：http://www.jcraft.com/jsch/
+ 类似C#中的SSH.Net框架。在Java中，类似的库还有：Apache Mina SSHD http://mina.apache.org

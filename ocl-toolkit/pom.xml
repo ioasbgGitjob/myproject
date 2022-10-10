@@ -8,7 +8,7 @@
         <version>2.7.4</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.example.ocl</groupId>
+    <groupId>com.ocl.toolkit</groupId>
     <artifactId>ocl-toolkit</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>ocl-toolkit</name>

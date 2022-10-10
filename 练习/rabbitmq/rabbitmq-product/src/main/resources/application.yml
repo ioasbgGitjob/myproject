@@ -1,0 +1,14 @@
+server:
+  port: 8021
+#spring:
+#  #???????
+#  application:
+#    name: rabbitmq-product
+#  #??rabbitMq ???
+#  rabbitmq:
+#    host: 192.168.58.11
+#    port: 5672
+#    username: admin
+#    password: admin
+##    #??host ?????,??server??host
+##    virtual-host: JCcccHost
