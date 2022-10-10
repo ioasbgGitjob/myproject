@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SelfApplication {
+public class SelfToolkitApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SelfApplication.class, args);
+		SpringApplication.run(SelfToolkitApplication.class, args);
 	}
 
 }
