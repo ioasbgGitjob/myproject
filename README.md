@@ -1,6 +1,6 @@
-# szy-code-note
+# szy-code-note (代码笔记)
 
-#### 介绍
+## 介绍
 该目录存放平时遇到的, 或者学习到的知识的源代码
 
 ### self-toolkit   
