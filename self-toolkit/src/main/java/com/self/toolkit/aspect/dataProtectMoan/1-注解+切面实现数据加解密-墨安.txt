@@ -13,3 +13,10 @@
 缺点:
 1 不是通用设计, 只能针对墨安的业务场景
 2 只能操作第一层级的参数
+
+
+需要的依赖
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-aop</artifactId>
+		</dependency>

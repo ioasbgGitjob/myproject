@@ -1,5 +1,6 @@
 package com.self.toolkit.aspect.dataProtectMoan;
 
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.Signature;
 import org.aspectj.lang.annotation.Around;
@@ -119,7 +120,7 @@ public class DESAspect {
         Map<String, String> fieldNameMap = Arrays.asList(fieldNames).stream().collect(Collectors.toMap(key -> key, key -> {
             if (key.equals("id")) {
                 return "key";
-            } else if (key.lastIndexOf("id") == key.length() - 2) {
+            } else if (key.lastIndexOf("Id") == key.length() - 2) {
                 return key.replace("Id", "Key");
             } else {
                 return "";
@@ -151,7 +152,7 @@ public class DESAspect {
                 Object value = f.get(proceed);
                 if (null == value) return proceed;
                 // TODO: 这里执行加密操作
-                f2.set(proceed, "999"); // 先用999测试, 表示已经解密成功
+                f2.set(proceed, "已被加密"); // 先用999测试, 表示已经解密成功
             }
         }
         return proceed;
@@ -188,6 +189,7 @@ public class DESAspect {
         }));
 
         for (Object arg : args) {
+            if (null == arg || arg.toString().trim().length() == 0) continue;
             if (arg instanceof String) {
                 // string 类型在上边已经处理过了
             } else {
@@ -204,11 +206,11 @@ public class DESAspect {
                     Object value = f.get(arg);
                     if (null == value || value.toString().trim().length() == 0) continue;
                     // TODO: 这里执行解密操作
-                    String f2ClassType = f2.getClass().getTypeName().getClass().getTypeName();
-                    if (f2ClassType.equals(Long.class.getTypeName())) {
+                    String f2ClassType = f2.getType().getName();
+                    if (f2ClassType.equals(Long.class.getName())) {
                         f2.set(arg, 999L); // 先用999测试, 表示已经解密成功
                     }
-                    if (f2ClassType.equals(Integer.class.getTypeName())) {
+                    if (f2ClassType.equals(Integer.class.getName())) {
                         f2.set(arg, 999); // 先用999测试, 表示已经解密成功
                     }
                 }
