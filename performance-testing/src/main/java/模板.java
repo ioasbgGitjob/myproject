@@ -13,13 +13,12 @@ public class 模板 {
     public void mainTest() throws InterruptedException {
         StopWatch s = new StopWatch();
         Thread.sleep(2000);
-        Thread.sleep(2000);
-        Thread.sleep(2000);
-        Thread.sleep(2000);
-
         test1(s);
+        Thread.sleep(2000);
         test1(s);
+        Thread.sleep(2000);
         test1(s);
+        Thread.sleep(2000);
         test1(s);
 
         System.out.println(s.getTotalTimeSeconds());
@@ -30,5 +29,6 @@ public class 模板 {
         s.start("测试的名称");
         // TODO
         s.stop();
+//        System.out.println(s.getTotalTimeSeconds());
     }
 }

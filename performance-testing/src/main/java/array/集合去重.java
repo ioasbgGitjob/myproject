@@ -1,10 +1,12 @@
+package array;
+
 import pojo.TestEntity;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * @名字 集合去重
+ * @名字 array.集合去重
  * @应用场景说明 A, B两个对象集合，根据对象内固定的n列（n>=2），求交集,并集,差集
  * @任务 1 拿到重复过的元素； 2 拿到没重复过的元素
  * @结论 treeset 效率最高  map 次之，removeAll效率最低
