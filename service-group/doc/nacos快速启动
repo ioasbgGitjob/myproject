@@ -1,0 +1,7 @@
+参考资料: https://nacos.io/en-us/docs/quick-start.html
+
+下载地址: https://github.com/alibaba/nacos/releases/tag/2.0.4
+
+
+win启动:
+cmd 到nacos的bin目录, 执行:  .\startup.cmd -m standalone

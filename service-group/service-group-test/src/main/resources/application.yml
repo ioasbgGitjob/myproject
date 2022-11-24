@@ -1,0 +1,14 @@
+server:
+  servlet:
+    contextPath: /
+  port: 9003
+
+spring:
+  application:
+    name: test
+  cloud:
+    nacos:
+      discovery:
+        metadata:
+          service-group: szy
+      server-addr: localhost:8848

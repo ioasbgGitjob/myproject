@@ -1,0 +1,14 @@
+server:
+  servlet:
+    contextPath: /
+  port: 9022
+
+spring:
+  application:
+    name: openfeign-test
+  cloud:
+    nacos:
+#      discovery:
+#        metadata:
+#          service-group: szy
+      server-addr: localhost:8848
