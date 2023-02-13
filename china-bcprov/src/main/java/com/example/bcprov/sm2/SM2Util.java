@@ -17,6 +17,7 @@ import org.bouncycastle.math.ec.ECPoint;
 import org.bouncycastle.util.encoders.Hex;
 
 import java.io.File;
+import java.io.IOException;
 import java.math.BigInteger;
 import java.security.*;
 import java.security.spec.ECGenParameterSpec;
@@ -217,13 +218,18 @@ public class SM2Util {
         BCECPrivateKey s = (BCECPrivateKey) privateKey;
         System.out.print("\n私钥：" + Hex.toHexString(s.getD().toByteArray()));
 
-        String data = sm2.encrypt(Hex.toHexString(p.getQ().getEncoded(false)), M);
-//        String data = sm2.encrypt(publicKey1, M);
+//        String data = sm2.encrypt(Hex.toHexString(p.getQ().getEncoded(false)), M);
+        String data = sm2.encrypt(publicKey1, M);
         System.out.println("\n加密字符串：" + data);
 
-        String text = sm2.decrypt(Hex.toHexString(s.getD().toByteArray()), data);
-//        String text = sm2.decrypt(privateKey1, data);
+//        String text = sm2.decrypt(Hex.toHexString(s.getD().toByteArray()), data);
+        String text = sm2.decrypt(privateKey1, data);
         System.out.println("\n解密：" + text);
+    }
+
+    public static void main(String[] args) throws Exception {
+        testStr();
+
     }
 
 }

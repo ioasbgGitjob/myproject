@@ -13,16 +13,14 @@ import java.util.regex.Pattern;
  * @author szy
  * @version 1.0
  * @date 2023-02-13 16:40:42
- * @description
- * SM4属于对称加密算法，可用于替代DES/AES等国际算法， SM4算法与AES算法具有相同的密钥长度和分组长度，都是128位。<p/>
- *
+ * @description SM4属于对称加密算法，可用于替代DES/AES等国际算法， SM4算法与AES算法具有相同的密钥长度和分组长度，都是128位。<p/>
+ * <p>
  * 1.电码本模式（Electronic Codebook Book (ECB)）；
  * 2.密码分组链接模式（Cipher Block Chaining (CBC)）；
  * 3.计算器模式（Counter (CTR)）；
  * 4.密码反馈模式（Cipher FeedBack (CFB)）；
  * 5.输出反馈模式（Output FeedBack (OFB)）。
  * https://www.cnblogs.com/starwolf/p/3365834.html
- *
  */
 
 public class SM4Util {
@@ -231,7 +229,8 @@ public class SM4Util {
         String s4 = SM4DecForECB(sm4Key, s3);
         System.out.println("ECB解密结果:" + s4);
     }
-    public enum SM4Type{
+
+    public enum SM4Type {
         ECB, CBC,
     }
 }
