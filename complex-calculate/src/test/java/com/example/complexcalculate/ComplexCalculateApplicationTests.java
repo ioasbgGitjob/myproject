@@ -1,6 +1,7 @@
 package com.example.complexcalculate;
 
 import com.example.complexcalculate.entity.ExampleCalculate;
+import com.example.complexcalculate.entity.ExampleCalculateNew;
 import com.example.complexcalculate.service.ChangeFormulaService;
 import com.ismail.mxreflection.core.Calculator;
 import com.ismail.mxreflection.factory.MXFactory;
@@ -48,6 +49,13 @@ class ComplexCalculateApplicationTests {
 		Calculator<ExampleCalculate> calculator2 = MXFactory.createCalculator(ExampleCalculate.class);
 		calculator2.calculate(exampleCalculate2);
 		log.info("新的对象exampleCalculate2:" + exampleCalculate2.getField3());
+
+		ExampleCalculateNew exampleCalculateNew = new ExampleCalculateNew();
+		exampleCalculateNew.setField1("5");
+		exampleCalculateNew.setField2(11);
+		Calculator<ExampleCalculateNew> calculator3 = MXFactory.createCalculator(ExampleCalculateNew.class);
+		calculator3.calculate(exampleCalculateNew);
+		log.info("ExampleCalculateNew:" + exampleCalculateNew.getField3());
 	}
 
 }
