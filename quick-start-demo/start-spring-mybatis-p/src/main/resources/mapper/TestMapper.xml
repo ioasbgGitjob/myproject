@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.self.start.startspring.mapper.TestMapper">
+
+
+    <resultMap id="resultMap" type="com.self.start.startspring.entity.Test" autoMapping="true">
+        <result property="id" column="id"/>
+        <result property="name" column="name"/>
+        <result property="createTime" column="create_time"/>
+        <result property="age" column="age"/>
+    </resultMap>
+
+
+    <select id="getById" resultType="com.self.start.startspring.entity.Test">
+
+        select *
+        from test
+        where id = #{id};
+    </select>
+
+    <select id="getAll" resultMap="resultMap">
+
+        select t1.*
+        from test t1
+                 join test1 t2 on t1.name = t2.name
+    </select>
+</mapper>

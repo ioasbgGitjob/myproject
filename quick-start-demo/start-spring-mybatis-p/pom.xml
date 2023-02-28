@@ -12,7 +12,7 @@
 	<groupId>com.self.start</groupId>
 	<artifactId>start-spring-mybatis-p</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>start-spring</name>
+	<name>start-spring-mybatis-p</name>
 
 	<description>start-spring-mybatis-p</description>
 
@@ -48,11 +48,24 @@
 			<artifactId>mybatis-plus-boot-starter</artifactId>
 			<version>3.5.3</version>
 		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-generator</artifactId>
+			<version>3.5.3</version>
+		</dependency>
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version> 8.0.28</version>
+		</dependency>
+
+
+
+		<dependency>
+			<groupId>com.github.ismail-mekni</groupId>
+			<artifactId>mxreflection</artifactId>
+			<version>1.0.1</version>
 		</dependency>
 
 	</dependencies>
