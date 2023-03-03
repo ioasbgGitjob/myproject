@@ -21,7 +21,8 @@
     <select id="getAll" resultMap="resultMap">
 
         select t1.*
-        from test t1
-                 join test1 t2 on t1.name = t2.name
+        from test.test t1
+        join test1.test t2 on t1.name = t2.name
+
     </select>
 </mapper>

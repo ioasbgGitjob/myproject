@@ -8,12 +8,11 @@ import org.apache.ibatis.annotations.Select;
 import java.util.List;
 
 /**
- * @author szy
+ * @author szy123
  * @version 1.0
  * @date 2023-02-21 11:07:12
  * @description
  */
-
 @Mapper
 public interface TestMapper extends BaseMapper<Test> {
 

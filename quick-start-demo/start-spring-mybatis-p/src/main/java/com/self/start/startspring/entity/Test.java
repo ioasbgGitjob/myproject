@@ -1,17 +1,14 @@
 package com.self.start.startspring.entity;
 
-import com.baomidou.mybatisplus.annotation.*;
-import com.ismail.mxreflection.annotations.Arg;
-import com.ismail.mxreflection.annotations.Expression;
-import com.ismail.mxreflection.core.Calculator;
-import com.ismail.mxreflection.factory.MXFactory;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
 import java.time.LocalDateTime;
 
 /**
- * @author szy
+ * @author szy123
  * @version 1.0
  * @date 2023-02-21 11:06:27
  * @description
@@ -25,9 +22,14 @@ public class Test {
     private Long id;
     private String name;
     private LocalDateTime createTime;
-
-    @TableField(fill = FieldFill.DEFAULT)
     private Long age;
+    private Long tenantId;
 
+
+
+    public String getStr() {
+//        return "我是 Test.class中的方法: getStr()";
+        return null;
+    }
 
 }
