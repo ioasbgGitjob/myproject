@@ -31,13 +31,13 @@ public class TestMain {
 
 //        String key = UUID.randomUUID().toString().replace("-", "");
         String key = "00000000000000008888888888888888";
-        String sm4 = SMUtils.encryptSM4(src, true);
+        String sm4 = SMUtils.encryptSM4(src);
         System.out.println("sm4密文ECB:" + sm4);
-        System.out.println("sm4解密ECB:" + SMUtils.decryptSM4(sm4, true));
+        System.out.println("sm4解密ECB:" + SMUtils.decryptSM4(sm4));
         String key2 = "31313131313131313131313131313131";
-        sm4 = SMUtils.encryptSM4CBC(key, key2, src, true);
+        sm4 = SMUtils.encryptSM4CBC(key, key2, src);
         System.out.println("sm4密文_CBC:" + sm4);
-        System.out.println("sm4解密_CBC:" + SMUtils.decryptSM4CBC(key2, sm4, true));
+        System.out.println("sm4解密_CBC:" + SMUtils.decryptSM4CBC(key2, sm4));
         System.out.println("--------------");
     }
 

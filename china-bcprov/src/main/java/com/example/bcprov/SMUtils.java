@@ -83,7 +83,7 @@ public class SMUtils {
     }
 
     public static String encryptSM4(String secretKey, String str) throws Exception {
-        return new SM4Util(secretKey, null, false).encryptData_ECB(str);
+        return new SM4Util(secretKey, null, true).encryptData_ECB(str);
     }
 
     /**
@@ -113,7 +113,7 @@ public class SMUtils {
     }
 
     public static String decryptSM4(String secretKey, String str) throws Exception {
-        return new SM4Util(secretKey, null, false).decryptData_ECB(str);
+        return new SM4Util(secretKey, null, true).decryptData_ECB(str);
     }
 
     /**
@@ -149,7 +149,7 @@ public class SMUtils {
     }
 
     public static String encryptSM4CBC(String secretKey, String vi, String str) throws Exception {
-        return new SM4Util(secretKey, vi, false).encryptData_CBC(str);
+        return new SM4Util(secretKey, vi, true).encryptData_CBC(str);
     }
 
     /**
@@ -163,7 +163,7 @@ public class SMUtils {
     }
 
     public static String decryptSM4CBC(String secretKey, String vi, String str) throws Exception {
-        return new SM4Util(secretKey, vi, false).decryptData_CBC(str);
+        return new SM4Util(secretKey, vi, true).decryptData_CBC(str);
     }
 
     /**
