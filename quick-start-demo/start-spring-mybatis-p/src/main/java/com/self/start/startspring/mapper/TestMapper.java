@@ -19,4 +19,5 @@ public interface TestMapper extends BaseMapper<Test> {
     List<Test> getAll();
 
     Test getById(Long id);
+
 }

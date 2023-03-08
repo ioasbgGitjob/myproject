@@ -1,7 +1,6 @@
 package com.self.start.startspring.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.*;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -14,17 +13,18 @@ import java.time.LocalDateTime;
  * @description
  */
 @Data
-//@TableName("test")
-@Accessors(chain = true)
+@TableName("test")
 public class Test {
 
-    @TableId(type = IdType.AUTO)
+//    @TableId(type = IdType.INPUT)
+
     private Long id;
     private String name;
+    // 插入和更新时都会填充
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private LocalDateTime createTime;
     private Long age;
     private Long tenantId;
-
 
 
     public String getStr() {
