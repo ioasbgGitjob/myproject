@@ -1,6 +1,7 @@
 package com.self.start.startspring.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.handler.TenantLineHandler;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
@@ -10,15 +11,14 @@ import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import net.sf.jsqlparser.expression.Expression;
 import net.sf.jsqlparser.expression.LongValue;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.annotation.MapperScan;
-import org.sca.arch.application.model.constants.arch.MybatisConfigConstants;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
@@ -26,7 +26,8 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import javax.sql.DataSource;
 import java.util.Map;
 
-@MapperScan(basePackages = "${" + MybatisConfigConstants.HOE_MAPPER_SCAN + ":com.moan.**.mapper}")
+@Configuration
+@MapperScan(basePackages = "${mybatis.mapper-scan:com.**.mapper}")// 先从配置文件中读取，如果没有则使用默认值
 public class DataSourceConfig implements EnvironmentAware {
     private Environment environment;
     static final String MAPPER_LOCATION = "classpath:mapper/**/*.xml";
@@ -37,12 +38,13 @@ public class DataSourceConfig implements EnvironmentAware {
      * @return
      */
     @Primary
-    @Bean(name = "dataSourceConfig")
+    @Bean(name = "hikariDataSourceConfig")
     @ConfigurationProperties(ignoreUnknownFields = false, prefix = "spring.datasource")
     public HikariConfig hikariConfigBySpring() {
         return new HikariConfig();
     }
 
+    @Primary
     @Bean(name = "dataSource")
     public DynamicDataSource dynamicDataSource(HikariConfig hikariConfig) {
         DynamicDataSource dynamicDataSource = DynamicDataSource.getInstance();
@@ -59,7 +61,7 @@ public class DataSourceConfig implements EnvironmentAware {
     public SqlSessionFactory sqlSessionFactory(@Qualifier("dataSource") DataSource dataSource) throws Exception {
         MybatisSqlSessionFactoryBean sqlSessionFactory = new MybatisSqlSessionFactoryBean();
         sqlSessionFactory.setDataSource(dataSource);
-        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(environment.getProperty(MybatisConfigConstants.HOE_MAPPER_LOCATIONS, MAPPER_LOCATION)));
+        sqlSessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver().getResources(environment.getProperty("", MAPPER_LOCATION)));
         sqlSessionFactory.setPlugins(getPluGins());
         return sqlSessionFactory.getObject();
     }
@@ -86,7 +88,8 @@ public class DataSourceConfig implements EnvironmentAware {
         return new TenantLineInnerInterceptor(new TenantLineHandler() {
             @Override
             public Expression getTenantId() {
-                return new LongValue("这里设置租户id");
+                // 这里可以从 ThreadLocal 中获取当前登录用户的租户信息
+                return new LongValue("110");
             }
 
             // 这是 default 方法,默认返回 false 表示所有表都需要拼多租户条件

@@ -9,7 +9,6 @@ import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
-import org.sca.arch.application.common.util.SystemContext;
 import org.springframework.stereotype.Component;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.util.PathMatcher;
@@ -128,9 +127,6 @@ public class DBAspect {
 
         if (PropertyUtils.isReadable(o, ID) && PropertyUtils.getProperty(o, ID) == null) {
             PropertyUtils.setProperty(o, ID, getId());
-        }
-        if (PropertyUtils.isReadable(o, TENANT_ID) && PropertyUtils.getProperty(o, TENANT_ID) == null) {
-            PropertyUtils.setProperty(o, TENANT_ID, SystemContext.getTenantId());
         }
         if (PropertyUtils.isReadable(o, CREATE_TIME) && PropertyUtils.getProperty(o, CREATE_TIME) == null) {
             PropertyUtils.setProperty(o, CREATE_TIME, LocalDateTime.now());

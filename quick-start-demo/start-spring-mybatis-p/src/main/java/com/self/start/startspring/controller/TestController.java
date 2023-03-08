@@ -38,7 +38,7 @@ public class TestController {
         test1.setAge(999L);
         testMapper.insert(test1);
         Test aa = testMapper.getById(61L);
-        return Arrays.asList(aa);
+        return testMapper.selectList(null);
     }
 
     @GetMapping("/getAlll")
